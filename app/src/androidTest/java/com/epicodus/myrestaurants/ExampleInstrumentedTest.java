@@ -1,4 +1,4 @@
-package com.epicodus.myresturants;
+package com.epicodus.myrestaurants;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

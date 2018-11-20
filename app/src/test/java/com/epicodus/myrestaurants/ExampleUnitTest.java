@@ -1,4 +1,4 @@
-package com.epicodus.myresturants;
+package com.epicodus.myrestaurants;
 
 import org.junit.Test;
 
