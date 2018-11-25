@@ -7,7 +7,8 @@ import android.view.View;
 import android.widget.TextView;
 
 public class RestaurantViewHolder extends RecyclerView.ViewHolder {
-TextView nameText;
+    TextView nameText;
+
     public RestaurantViewHolder(@NonNull View itemView) {
         super(itemView);
         nameText = itemView.findViewById(R.id.restaurant_name);

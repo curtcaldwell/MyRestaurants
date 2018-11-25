@@ -7,14 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RestaurantAdapter extends RecyclerView.Adapter <RestaurantViewHolder> {
-List restaurantList = null;
-Context context;
+    List<Restaurant> restaurantList = new ArrayList<>();
+    Context context;
 
-    public RestaurantAdapter(Context c) {
+    public RestaurantAdapter(Context c, List<Restaurant> list) {
         context = c;
+        restaurantList = list;
     }
 
     @NonNull
@@ -30,8 +32,7 @@ Context context;
 
     @Override
     public void onBindViewHolder(@NonNull RestaurantViewHolder restaurantViewHolder, int i) {
-        restaurantList.get(i);
-        restaurantViewHolder.itemView.
+        restaurantViewHolder.nameText.setText(restaurantList.get(i).getName());
 
 
     }
@@ -40,7 +41,8 @@ Context context;
     public int getItemCount() {
         return restaurantList.size();
     }
-    public void updateList(List list) {
+    public void updateList(List<Restaurant> list) {
         restaurantList = list;
+        notifyDataSetChanged();
     }
 }
