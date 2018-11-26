@@ -20,8 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5"
-        />
+        app:layout_constraintGuide_percent="0.5" />
 
     <android.support.constraint.Guideline
         android:id="@+id/vguideline"
@@ -31,65 +30,67 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="TEST NAME"
-        app:layout_constraintTop_toBottomOf="@+id/guideline"
-        app:layout_constraintStart_toStartOf="parent"
         android:id="@+id/name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical|start"
-        app:layout_constraintEnd_toStartOf="@id/vguideline"
         android:padding="30dp"
+        android:text="TEST NAME"
+        app:layout_constraintEnd_toStartOf="@id/vguideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline"
 
         />
 
     <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="TEST Address"
-        app:layout_constraintTop_toBottomOf="@id/guideline"
-        app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/address"
-        android:gravity="center_vertical|start"
-        app:layout_constraintStart_toStartOf="@id/vguideline"
-        android:padding="30dp"
-
-        />
-
-    <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="TEST Phone number"
-        app:layout_constraintTop_toBottomOf="@+id/address"
+        android:gravity="center_vertical|start"
+        android:padding="30dp"
+        android:text="TEST Address"
         app:layout_constraintEnd_toEndOf="parent"
-        android:gravity="center_vertical|start"
         app:layout_constraintStart_toStartOf="@id/vguideline"
-        android:padding="30dp"
+        app:layout_constraintTop_toBottomOf="@id/guideline"
 
         />
 
     <TextView
+        android:id="@+id/phone"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="TEST Price"
-        app:layout_constraintTop_toBottomOf="@+id/name"
-        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center_vertical|start"
+        android:padding="30dp"
+        android:text="TEST Phone number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/vguideline"
+        app:layout_constraintTop_toBottomOf="@+id/address"
+
+        />
+
+    <TextView
         android:id="@+id/price"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical|start"
-        app:layout_constraintEnd_toStartOf="@id/vguideline"
         android:padding="30dp"
+        android:text="TEST Price"
+        app:layout_constraintEnd_toStartOf="@id/vguideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name"
 
         />
 
     <TextView
+        android:id="@+id/res"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="TEST Reservation"
-        app:layout_constraintTop_toBottomOf="@+id/price"
-        app:layout_constraintStart_toStartOf="parent"
         android:gravity="center_vertical|start"
-        app:layout_constraintEnd_toStartOf="@id/vguideline"
         android:padding="30dp"
+        android:text="TEST Reservation"
+        app:layout_constraintEnd_toStartOf="@id/vguideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/price"
 
 
         />

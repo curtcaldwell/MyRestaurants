@@ -39,7 +39,18 @@ public class RestaurantsActivity extends AppCompatActivity {
         adapter = new RestaurantAdapter(this, restaurantList, new RestaurantClickListener() {
             @Override
             public void onRestaurantClicked(Restaurant restaurant) {
-                Toast.makeText(RestaurantsActivity.this,restaurant.getName(),Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(RestaurantsActivity.this, RestaurantInfoActivity.class);
+                intent.putExtra("restaurant", restaurant);
+
+//                intent.putExtra("name", restaurant.getName());
+//                intent.putExtra("address", restaurant.getAddress());
+//                if (restaurant.getPrice() != null) {
+//                    intent.putExtra("price", restaurant.getPrice());
+//                }
+//                intent.putExtra("phone", restaurant.getPhone());
+//                intent.putExtra("reservation", restaurant.getMobileReserveUrl());
+                startActivity(intent);
+                Toast.makeText(RestaurantsActivity.this, restaurant.getName(), Toast.LENGTH_SHORT).show();
                 //TODO start intent for restaurant info activity and pass restaurant as parcelable as extra
 
             }
@@ -66,12 +77,13 @@ public class RestaurantsActivity extends AppCompatActivity {
         return service;
 
     }
+
     private void getRestaurants(final String zipcode) {
         Call call = getService().getOpenTableResponse(zipcode);
         call.enqueue(new Callback<OpenTableResponse>() {
             @Override
             public void onResponse(Call<OpenTableResponse> call, Response<OpenTableResponse> response) {
-                if(response != null && response.body() != null) {
+                if (response != null && response.body() != null) {
                     if (response.body().getTotalEntries() == 0 && zipcode.length() == 5) {
                         Toast.makeText(RestaurantsActivity.this, "There are no restaurants in your area", Toast.LENGTH_SHORT).show();
                     } else {
@@ -90,6 +102,7 @@ public class RestaurantsActivity extends AppCompatActivity {
             }
         });
     }
+
     public interface OpenTableService {
         @GET("api/restaurants")
         Call<OpenTableResponse> getOpenTableResponse(@Query("zip") String zip);
@@ -98,4 +111,5 @@ public class RestaurantsActivity extends AppCompatActivity {
     public interface RestaurantClickListener {
         void onRestaurantClicked(Restaurant restaurant);
     }
+
 }
