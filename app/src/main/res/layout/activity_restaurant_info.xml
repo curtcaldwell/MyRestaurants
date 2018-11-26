@@ -68,18 +68,53 @@
 
         />
 
-    <TextView
+    <LinearLayout
         android:id="@+id/price"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center_vertical|start"
         android:padding="30dp"
-        android:text="TEST Price"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toStartOf="@id/vguideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name"
 
-        />
+        >
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_dollar"
+            android:id="@+id/dollar"
+
+            />
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_dollar"
+            android:id="@+id/dollar2"
+
+            />
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_dollar"
+            android:id="@+id/dollar3"
+
+            />
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_dollar"
+            android:id="@+id/dollar4"
+
+            />
+
+
+    </LinearLayout>
+
+
+
 
     <TextView
         android:id="@+id/res"
