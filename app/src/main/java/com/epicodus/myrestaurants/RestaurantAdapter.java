@@ -13,10 +13,12 @@ import java.util.List;
 public class RestaurantAdapter extends RecyclerView.Adapter <RestaurantViewHolder> {
     List<Restaurant> restaurantList = new ArrayList<>();
     Context context;
+    RestaurantsActivity.RestaurantClickListener listener;
 
-    public RestaurantAdapter(Context c, List<Restaurant> list) {
+    public RestaurantAdapter(Context c, List<Restaurant> list, RestaurantsActivity.RestaurantClickListener l) {
         context = c;
         restaurantList = list;
+        listener = l;
     }
 
     @NonNull
@@ -31,8 +33,13 @@ public class RestaurantAdapter extends RecyclerView.Adapter <RestaurantViewHolde
 
 
     @Override
-    public void onBindViewHolder(@NonNull RestaurantViewHolder restaurantViewHolder, int i) {
-        restaurantViewHolder.nameText.setText(restaurantList.get(i).getName());
+    public void onBindViewHolder(@NonNull final RestaurantViewHolder restaurantViewHolder, int i) {
+        restaurantViewHolder.onBind(restaurantList.get(i), new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onRestaurantClicked(restaurantList.get(restaurantViewHolder.getAdapterPosition()));
+            }
+        });
 
 
     }

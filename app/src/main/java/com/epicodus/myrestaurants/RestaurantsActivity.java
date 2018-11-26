@@ -28,9 +28,6 @@ public class RestaurantsActivity extends AppCompatActivity {
     private RestaurantAdapter adapter;
     private RecyclerView recyclerView;
     private List<Restaurant> restaurantList = new ArrayList<>();
-//    private String[] restaurants = new String[]{"Sweet Hereafter", "Cricket", "Hawthorne Fish House", "Viking Soul Food",
-//            "Red Square", "Horse Brass", "Dick's Kitchen", "Taco Bell", "Me Kha Noodle Bar",
-//            "La Bonita Taqueria", "Smokehouse Tavern", "Pembiche", "Kay's Bar", "Gnarly Grey", "Slappy Cakes", "Mi Mero Mole"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,21 +36,20 @@ public class RestaurantsActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.restaurant_list);
         mLocationTextView = findViewById(R.id.locationTextView);
-        adapter = new RestaurantAdapter(this, restaurantList);
+        adapter = new RestaurantAdapter(this, restaurantList, new RestaurantClickListener() {
+            @Override
+            public void onRestaurantClicked(Restaurant restaurant) {
+                Toast.makeText(RestaurantsActivity.this,restaurant.getName(),Toast.LENGTH_SHORT).show();
+                //TODO start intent for restaurant info activity and pass restaurant as parcelable as extra
 
-//        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, restaurants);
+            }
+        });
+
+
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(adapter);
         adapter.updateList(restaurantList);
-
-//        recyclerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                String restaurant = ((TextView)view).getText().toString();
-//                Toast.makeText(RestaurantsActivity.this, restaurant, Toast.LENGTH_LONG).show();
-//            }
-//        });
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
@@ -97,5 +93,9 @@ public class RestaurantsActivity extends AppCompatActivity {
     public interface OpenTableService {
         @GET("api/restaurants")
         Call<OpenTableResponse> getOpenTableResponse(@Query("zip") String zip);
+    }
+
+    public interface RestaurantClickListener {
+        void onRestaurantClicked(Restaurant restaurant);
     }
 }
