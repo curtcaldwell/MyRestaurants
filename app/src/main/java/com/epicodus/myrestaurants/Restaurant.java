@@ -182,6 +182,7 @@ public class Restaurant implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
         dest.writeString(name);
         dest.writeString(address);
         dest.writeString(city);
@@ -191,6 +192,8 @@ public class Restaurant implements Parcelable {
         dest.writeString(phone);
         dest.writeInt(price);
         dest.writeString(mobileReserveUrl);
+        dest.writeDouble(lat);
+        dest.writeDouble(lng);
 
 
     }
@@ -209,6 +212,7 @@ public class Restaurant implements Parcelable {
 
     // "De-parcel object
     public Restaurant(Parcel in) {
+        id = in.readInt();
         name = in.readString();
         address = in.readString();
         city = in.readString();
@@ -218,6 +222,8 @@ public class Restaurant implements Parcelable {
         phone = in.readString();
         price = in.readInt();
         mobileReserveUrl = in.readString();
+        lat = in.readDouble();
+        lng = in.readDouble();
 
     }
 }

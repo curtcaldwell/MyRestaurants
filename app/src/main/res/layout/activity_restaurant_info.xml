@@ -4,16 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <View
+
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
@@ -34,8 +35,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center_vertical|start"
-        android:padding="30dp"
+        android:padding="10dp"
         android:text="TEST NAME"
+        android:textSize="20dp"
         app:layout_constraintEnd_toStartOf="@id/vguideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/guideline"
@@ -47,8 +49,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center_vertical|start"
-        android:padding="30dp"
+        android:padding="10dp"
         android:text="TEST Address"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/vguideline"
         app:layout_constraintTop_toBottomOf="@id/guideline"
@@ -60,60 +63,85 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center_vertical|start"
-        android:padding="30dp"
+        android:padding="10dp"
         android:text="TEST Phone number"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/vguideline"
         app:layout_constraintTop_toBottomOf="@+id/address"
 
         />
 
-    <LinearLayout
-        android:id="@+id/price"
-        android:layout_width="0dp"
+    <FrameLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical|start"
-        android:padding="30dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toStartOf="@id/vguideline"
+        android:id="@+id/favorities_icon_layout"
+        app:layout_constraintStart_toEndOf="@id/vguideline"
+        app:layout_constraintTop_toBottomOf="@+id/phone"
+        app:layout_constraintEnd_toEndOf="parent">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_star_not_selected"
+            android:id="@+id/unclickedstar"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_star_selected"
+            android:id="@+id/clickedstar"
+            android:tint="@android:color/holo_green_dark"
+            android:visibility="gone"/>
+    </FrameLayout>
+
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/dollar"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/ic_dollar"
+        app:layout_constraintBottom_toTopOf="@id/res"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name"
 
-        >
 
-        <android.support.v7.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_dollar"
-            android:id="@+id/dollar"
+        />
 
-            />
-        <android.support.v7.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_dollar"
-            android:id="@+id/dollar2"
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/dollar2"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/ic_dollar"
+        app:layout_constraintBottom_toTopOf="@id/res"
 
-            />
-        <android.support.v7.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_dollar"
-            android:id="@+id/dollar3"
+        app:layout_constraintStart_toEndOf="@id/dollar"
+        app:layout_constraintTop_toBottomOf="@+id/name"
 
-            />
-        <android.support.v7.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_dollar"
-            android:id="@+id/dollar4"
+        />
 
-            />
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/dollar3"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/ic_dollar"
+        app:layout_constraintBottom_toTopOf="@id/res"
+        app:layout_constraintStart_toEndOf="@id/dollar2"
 
+        app:layout_constraintTop_toBottomOf="@+id/name"
 
-    </LinearLayout>
+        />
 
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/dollar4"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/ic_dollar"
+        app:layout_constraintBottom_toTopOf="@id/res"
+        app:layout_constraintStart_toEndOf="@id/dollar3"
 
+        app:layout_constraintTop_toBottomOf="@+id/name"
+
+        />
 
 
     <TextView
@@ -121,11 +149,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center_vertical|start"
-        android:padding="30dp"
+        android:padding="10dp"
         android:text="TEST Reservation"
+        android:textSize="20dp"
         app:layout_constraintEnd_toStartOf="@id/vguideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/price"
+        app:layout_constraintTop_toBottomOf="@+id/dollar"
 
 
         />
