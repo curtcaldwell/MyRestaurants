@@ -11,6 +11,7 @@
     android:layout_height="wrap_content"
     android:text="Test Text"
     android:textSize="22sp"
+    android:textColor="@color/white"
     android:padding="10dp"
 
     />
@@ -18,7 +19,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/colorDivider"
+        android:background="@color/white"
         app:layout_constraintTop_toBottomOf="@+id/restaurant_name"
 
         />

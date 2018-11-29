@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -116,6 +117,8 @@ public class RestaurantInfoActivity extends AppCompatActivity implements OnMapRe
 
         map.addMarker(new MarkerOptions().position(new LatLng(restaurant.getLat(), restaurant.getLng())).title(
                 "Marker"));
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(
+                new LatLng(restaurant.getLat(), restaurant.getLng()), 14));
     }
 
     private void initializeMap() {
@@ -192,6 +195,7 @@ public class RestaurantInfoActivity extends AppCompatActivity implements OnMapRe
     @Override
     public void onMapReady(GoogleMap googleMap) {
         map = googleMap;
+        setUpMap();
     }
 }
 
