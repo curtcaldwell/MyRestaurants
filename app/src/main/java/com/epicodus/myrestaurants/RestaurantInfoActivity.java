@@ -136,8 +136,13 @@ public class RestaurantInfoActivity extends AppCompatActivity implements OnMapRe
     }
 
     public String formattedPhoneNumber() {
-        String formattedString = restaurant.getPhone().replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1) $2-$3");
-        return formattedString.substring(0, 14);
+        if (!restaurant.getPhone().isEmpty()) {
+            String formattedString = restaurant.getPhone().replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1) $2-$3");
+            if (formattedString.length() >= 13) {
+                return formattedString.substring(0, 14);
+            }
+        }
+        return "";
     }
 
     public String makeReservations() {
