@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         mLocationEditText = findViewById(R.id.locationEditText);
         mFindRestaurantsButton = findViewById(R.id.findRestaurantsButton);
 
+        
         mFindRestaurantsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
