@@ -116,7 +116,7 @@ public class RestaurantInfoActivity extends AppCompatActivity implements OnMapRe
     private void setUpMap() {
 
         map.addMarker(new MarkerOptions().position(new LatLng(restaurant.getLat(), restaurant.getLng())).title(
-                "Marker"));
+                restaurant.getName()));
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(
                 new LatLng(restaurant.getLat(), restaurant.getLng()), 14));
     }
