@@ -50,8 +50,7 @@ public class RestaurantsActivity extends AppCompatActivity {
 //                intent.putExtra("phone", restaurant.getPhone());
 //                intent.putExtra("reservation", restaurant.getMobileReserveUrl());
                 startActivity(intent);
-                Toast.makeText(RestaurantsActivity.this, restaurant.getName(), Toast.LENGTH_SHORT).show();
-                //TODO start intent for restaurant info activity and pass restaurant as parcelable as extra
+
 
             }
         });
