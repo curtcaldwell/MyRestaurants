@@ -44,6 +44,8 @@ public class RestaurantInfoActivity extends AppCompatActivity implements OnMapRe
 
         initializeMap();
 
+
+
         TextView nameText = findViewById(R.id.name);
         Intent intent = getIntent();
         restaurant = intent.getParcelableExtra("restaurant");
@@ -60,6 +62,8 @@ public class RestaurantInfoActivity extends AppCompatActivity implements OnMapRe
 
         starImage = findViewById(R.id.unclickedstar);
         clickedStarImage = findViewById(R.id.clickedstar);
+
+        getSupportActionBar().setTitle(restaurant.getName());
 
         SharedPreferences prefs = getSharedPreferences(FAVORITES_PREFS, MODE_PRIVATE);
         isfavorited = prefs.getBoolean(restaurant.getId().toString(), false);

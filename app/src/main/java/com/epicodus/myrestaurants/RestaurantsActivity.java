@@ -89,6 +89,7 @@ public class RestaurantsActivity extends AppCompatActivity {
                     } else {
                         restaurantList = response.body().getRestaurants();
                         adapter.updateList(restaurantList);
+                        getSupportActionBar().setTitle(zipcode);
                     }
 
                 }
