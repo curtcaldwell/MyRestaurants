@@ -66,7 +66,7 @@ public class RestaurantInfoActivity extends AppCompatActivity implements OnMapRe
         getSupportActionBar().setTitle(restaurant.getName());
 
         SharedPreferences prefs = getSharedPreferences(FAVORITES_PREFS, MODE_PRIVATE);
-        isfavorited = prefs.getBoolean(restaurant.getId().toString(), false);
+        isfavorited = prefs.getBoolean(restaurant.getId().toString(), true);
         if (isfavorited) {
             starImage.setVisibility(View.VISIBLE);
             clickedStarImage.setVisibility(View.GONE);
