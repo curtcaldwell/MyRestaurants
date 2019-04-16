@@ -3,6 +3,7 @@ package com.epicodus.myrestaurants;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -22,6 +23,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
+
+import static android.support.v7.widget.RecyclerView.HORIZONTAL;
 
 public class RestaurantsActivity extends AppCompatActivity {
     private TextView mLocationTextView;
@@ -65,6 +68,7 @@ public class RestaurantsActivity extends AppCompatActivity {
         String location = intent.getStringExtra("location");
         mLocationTextView.setText("Here are all the restaurants near: " + location);
         getRestaurants(location);
+
     }
 
     private OpenTableService getService() {
